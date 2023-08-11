@@ -42,3 +42,26 @@ Public Sub SetDataFieldsNumFormat()
        .ManualUpdate = False
     End With
 End Sub
+
+
+Sub ListAllPivotTables()
+    'หาทุก pivot table บน workbook
+    Dim ws As Worksheet
+    Dim pt As PivotTable
+    Dim i As Integer
+
+    i = 1
+
+    For Each ws In ActiveWorkbook.Worksheets
+
+        For Each pt In ws.PivotTables
+
+            Debug.Print i & ". " & pt.Name & " on " & ws.Name
+
+            i = i + 1
+
+        Next pt
+
+    Next ws
+
+End Sub
